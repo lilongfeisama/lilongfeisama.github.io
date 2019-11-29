@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LLF的博客</title>
+  <title>子树合并背包类型的dp的复杂度证明 | LLF的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LLF的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="2019CCF认证第五题  K为重要结点数  N为节点数每次我们更新root下的子树，root下子树中的节点，只会被用一次，所以图中所有的节点 只会被用一次，每次最多计算k次所以复杂度为nk 这个题复杂度nk，加上一点常数，刚好够过证毕">
+<meta property="og:type" content="article">
+<meta property="og:title" content="子树合并背包类型的dp的复杂度证明">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;29&#x2F;%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6%E8%83%8C%E5%8C%85%E7%B1%BB%E5%9E%8B%E7%9A%84dp%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E&#x2F;index.html">
 <meta property="og:site_name" content="LLF的博客">
+<meta property="og:description" content="2019CCF认证第五题  K为重要结点数  N为节点数每次我们更新root下的子树，root下子树中的节点，只会被用一次，所以图中所有的节点 只会被用一次，每次最多计算k次所以复杂度为nk 这个题复杂度nk，加上一点常数，刚好够过证毕">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-29T03:24:01.163Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LLF的博客" type="application/atom+xml">
@@ -153,16 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-子树合并背包类型的dp的复杂度证明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-子树合并背包类型的dp的复杂度证明" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/29/%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6%E8%83%8C%E5%8C%85%E7%B1%BB%E5%9E%8B%E7%9A%84dp%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/">子树合并背包类型的dp的复杂度证明</a>
+    <h1 class="article-title" itemprop="name">
+      子树合并背包类型的dp的复杂度证明
     </h1>
   
 
@@ -182,6 +183,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -189,16 +211,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/29/%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6%E8%83%8C%E5%8C%85%E7%B1%BB%E5%9E%8B%E7%9A%84dp%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/29/%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6%E8%83%8C%E5%8C%85%E7%B1%BB%E5%9E%8B%E7%9A%84dp%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/28/2019-11-28-LLF%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E5%98%BB%E5%98%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LLF的博客开通了！！！！嘻嘻</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -218,150 +299,14 @@
 
 
 
-
   
-    <article id="post-2019-11-28-LLF的博客开通了！！！！嘻嘻" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/2019-11-28-LLF%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E5%98%BB%E5%98%BB/">LLF的博客开通了！！！！嘻嘻</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/28/2019-11-28-LLF%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E5%98%BB%E5%98%BB/" class="archive-article-date">
-  	<time datetime="2019-11-28T02:31:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="感谢B站upCodesheep的视频"><a href="#感谢B站upCodesheep的视频" class="headerlink" title="感谢B站upCodesheep的视频"></a>感谢B站upCodesheep的视频</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/2019-11-28-LLF%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E5%98%BB%E5%98%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-ICPC上海站-B题-trie树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/2019-ICPC%E4%B8%8A%E6%B5%B7%E7%AB%99-B%E9%A2%98-trie%E6%A0%91/">2019 ICPC上海站 B题 trie树</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/28/2019-ICPC%E4%B8%8A%E6%B5%B7%E7%AB%99-B%E9%A2%98-trie%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2019-11-28T01:48:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Problem-B-Preﬁx-Code"><a href="#Problem-B-Preﬁx-Code" class="headerlink" title="Problem B. Preﬁx Code"></a>Problem B. Preﬁx Code</h2><p>输入：</p>
-<p>T组数据 T&lt;=100;<br>每组数据给一个N 代表输入的密码数量<br>下面N行  每行一个密码 密码长度不超过10；</p>
-<p>输出 ：<br>如果这N个密码互不为其他密码的前缀，输出YES，否则输出NO</p>
-<p>样例<br>input<br>3<br>2<br>9<br>55<br>4<br>9<br>5<br>59<br>55<br>4<br>01<br>01<br>123<br>321</p>
-<p>output<br>Case #1: Yes<br>Case #2: No<br>Case #3: No  </p>
-<p>题解<br>典型的tire树板子题  把每个密码都存到tire树里，然后存的时候判断别的密码是否出现过<br>和判断此密码是否是别的密码的前缀就可以了</p>
-<p>代码如下<br>#include<cstring><br>#include <iostream><br>using namespace std ;<br>const int maxn=1e4+1;<br>struct node<br>{</p>
-<pre><code>int k;
-int next[10];
-node()
-{
-
-    for(int i=0;i&lt;10;i++)
-        next[i]=-1;
-}</code></pre><p>};<br>int cnt;<br>node t[maxn*10];<br>int _insert(string a)<br>{<br>    int len=a.size();<br>    int cur=0;<br>    for(int i=0;i&lt;len;i++)<br>    {   if(i==len-1&amp;&amp;t[cur].next[a[i]-‘0’]!=-1) //判断他是否是别人的前缀<br>                    return 0;<br>        if(t[cur].next[a[i]-‘0’]==-1)<br>        {<br>            t[cur].next[a[i]-‘0’]=++cnt;<br>        }<br>        cur=t[cur].next[a[i]-‘0’];<br>        if(t[cur].k==1)  //判断是否别人是他的前缀<br>            return 0;<br>    }<br>    t[cur].k=1;<br>    return 1;<br>}<br>int main()<br>{<br>   int t;<br>   cin&gt;&gt;t;<br>   int pan=1;<br>   while(t–)<br>   {<br>       int n;<br>       cin&gt;&gt;n;<br>       while(n–)<br>       {<br>       string a;<br>       cin&gt;&gt;a;<br>       if(pan==0)<br>        continue;<br>       pan=_insert(a);<br>       }<br>       if(pan==1)<br>        cout&lt;&lt;”Yes”&lt;&lt;endl;<br>       else cout&lt;&lt;”No”&lt;&lt;endl;<br>   }</p>
-<p>}</p>
-<p>总结  ：<br>一开始用的new 动态开辟内存写tire树  不知道为什么交了一发就RE了<br>然后zbr说他都用cnt++写<br>然后我花了五分钟改成cnt++写，AC了</p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/2019-ICPC%E4%B8%8A%E6%B5%B7%E7%AB%99-B%E9%A2%98-trie%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -384,8 +329,8 @@ node()
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
