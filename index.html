@@ -155,6 +155,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CF1249C2-隐含‘进制转换’题目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/13/CF1249C2-%E9%9A%90%E5%90%AB%E2%80%98%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E2%80%99%E9%A2%98%E7%9B%AE/">CF1249C2 隐含‘进制转换’题目</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/13/CF1249C2-%E9%9A%90%E5%90%AB%E2%80%98%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E2%80%99%E9%A2%98%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2019-12-13T02:16:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Codeforces Round #595 (Div. 3)<br>C2. Good Numbers (hard version)</p>
+<p>time limit per test2 seconds<br>memory limit per test256 megabytes</p>
+<p>You are given a positive integer number n. You really love good numbers so you want to find the smallest good number greater than or equal to n.</p>
+<p>The positive integer is called good if it can be represented as a sum of distinct powers of 3 (i.e. no duplicates of powers of 3 are allowed).</p>
+<p>For example:</p>
+<p>30 is a good number: 30=33+31,<br>1 is a good number: 1=30,<br>12 is a good number: 12=32+31,<br>but 2 is not a good number: you can’t represent it as a sum of distinct powers of 3 (2=30+30),<br>19 is not a good number: you can’t represent it as a sum of distinct powers of 3 (for example, the representations 19=32+32+30=32+31+31+31+30 are invalid),<br>20 is also not a good number: you can’t represent it as a sum of distinct powers of 3 (for example, the representation 20=32+32+30+30 is invalid).<br>Note, that there exist other representations of 19 and 20 as sums of powers of 3 but none of them consists of distinct powers of 3.</p>
+<p>For the given positive integer n find such smallest m (n≤m) that m is a good number.</p>
+<p>You have to answer q independent queries.</p>
+<p>Input<br>The first line of the input contains one integer q (1≤q≤500) — the number of queries. Then q queries follow.</p>
+<p>The only line of the query contains one integer n (1≤n≤1e18).</p>
+<p>Output<br>For each query, print such smallest integer m (where n≤m) that m is a good number.</p>
+<p>Example<br>input<br>8<br>1<br>2<br>6<br>13<br>14<br>3620<br>10000<br>1000000000000000000<br>output<br>1<br>3<br>9<br>13<br>27<br>6561<br>19683<br>1350851717672992089</p>
+<p>题意<br>如果一个数 ，可以用三的不同幂次相加表示，那么这个数是一个Good number，<br>现在给一个N<br>求最小的大于等于N的Good number </p>
+<p>类比十进制转二进制思想<br>把此数转为三进制，由题意知，若这个三进制数的每一位为0或1 ，那么这个数是Good number<br>如果有一位是2 代表不是Good number</p>
+<p>那么我们可以从高位开始往低位去找，找到第一个为2的位，此位后面全取0，然后给这一位+1，往高位<br>更新进位结果，高位如果更新后为2，再+1进位，输出改变后的数，即是答案<br>因为 低位全取最高权值，加起来，不如一个高位，<br>即，后面的不用管，全置0就行了</p>
+<p>代码</p>
+<p>#include<cstdio><br>#include<cstring><br>typedef long long LL;<br>int a[200],k;<br>void init()<br>{<br>    memset(a,0,sizeof(a));<br>    k=0;<br>}<br>void solve(LL m)<br>{<br>    while(m)<br>    {<br>        a[k++]=m%3;<br>        m/=3;<br>    }<br>}<br>LL quick(LL x,LL nn)/<em>pow函数是求浮点数的,会造成精度损失，最好是用快速幂</em>/<br>{<br>    LL res=1;<br>    while(nn)<br>    {<br>        if(nn&amp;1)<br>            res=res<em>x;<br>        x=x</em>x;<br>        nn&gt;&gt;=1;<br>    }<br>    return res;<br>}<br>int main()<br>{<br>    int T;<br>    LL n;<br>    scanf(“%d”,&amp;T);<br>    while(T–)<br>    {<br>        init();<br>        scanf(“%lld”,&amp;n);<br>        solve(n);</p>
+<pre><code>    int lab,flag=0;
+    for(int i=k-1; i&gt;=0; i--)
+    {
+        if(a[i]==2)
+        {
+            lab=i;/*从高位到低位找到第一个2的位置*/
+            flag=1;
+            break;
+        }
+    }
+
+    if(!flag)
+        printf(&quot;%lld\n&quot;,n);
+    else
+    {
+        LL sum=0;
+        for(int i=lab; i&lt;k; i++)
+        {
+            if(a[i]==2)
+            {
+                a[i]=0;
+                a[i+1]++;
+            }
+        }
+        if(a[k])
+            k++;
+
+        for(int i=k-1; i&gt;=lab; i--)
+        {
+            sum+=a[i]*quick(3,i);
+        }
+        printf(&quot;%lld\n&quot;,sum);
+    }
+}
+return 0;</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/13/CF1249C2-%E9%9A%90%E5%90%AB%E2%80%98%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E2%80%99%E9%A2%98%E7%9B%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Fate-Grand-Order" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
