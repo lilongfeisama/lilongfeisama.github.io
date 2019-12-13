@@ -155,6 +155,189 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CF1249E-简单DP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/13/CF1249E-%E7%AE%80%E5%8D%95DP/">CF1249E 简单DP</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/13/CF1249E-%E7%AE%80%E5%8D%95DP/" class="archive-article-date">
+  	<time datetime="2019-12-13T02:38:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CF 1249E<br>每次可以选电梯上升或者爬楼梯上升</p>
+<p>简单DP  注意 初始化即可<br>因为一开始上升需要等C  所以初始化时电梯的初始状态要注意</p>
+<p>#include<cstring><br>#include <iostream><br>#include<cstdio><br>#include<queue><br>#include<cmath><br>#include<algorithm><br>#include<set><br>#include<vector><br>using namespace std ;<br>const int maxn=2*1e5+5;<br>long long a[maxn];<br>long long b[maxn];<br>long long dp[maxn][2]; //0 在电梯里   1 走上来<br>int main()<br>{<br>    int n,c;<br>    cin&gt;&gt;n&gt;&gt;c;<br>    for(int i=1;i&lt;n;i++)<br>    {</p>
+<pre><code>    cin&gt;&gt;a[i];
+}
+for(int i=1;i&lt;n;i++)
+{
+
+    cin&gt;&gt;b[i];
+}
+dp[1][1]=0;
+dp[1][0]=c;
+for(int i=2;i&lt;=n;i++)
+{
+
+    dp[i][0]=min(dp[i-1][1]+b[i-1]+c,dp[i-1][0]+b[i-1]);
+    dp[i][1]=min(dp[i-1][1]+a[i-1],dp[i-1][0]+a[i-1]);
+}
+for(int i=1;i&lt;=n;i++)
+{
+
+    cout&lt;&lt;min(dp[i][0],dp[i][1])&lt;&lt;&apos; &apos;;
+}
+cout&lt;&lt;endl;</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/13/CF1249E-%E7%AE%80%E5%8D%95DP/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CF1249D2-扫描-贪心" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/">CF1249D2 扫描 贪心 </a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/" class="archive-article-date">
+  	<time datetime="2019-12-13T02:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CF  DIV3  1249D2<br>给N个区间<br>给一个K<br>区间每次给L和R<br>会给区间上的点加权值<br>要求每个点的权值不超过K<br>问<br>如何删除最少的区间达到这个效果</p>
+<p>分析：<br>贪心<br>从左往右修正点的权值 （删除区间）<br>如果需要删除区间 则删除向右边延申最多的区间<br>#include<cstring><br>#include <iostream><br>#include<cstdio><br>#include<queue><br>#include<cmath><br>#include<algorithm><br>#include<set><br>#include<vector><br>using namespace std ;<br>const int maxn=2*1e5+5;<br>typedef pair&lt;int,int&gt; P;<br>vector<P> endi[maxn];<br>int cnt;<br>int main()<br>{</p>
+<pre><code>int n,k;
+cin&gt;&gt;n&gt;&gt;k;
+set&lt;P&gt; remain;
+for(int i=1;i&lt;=n;i++)
+{
+      int l,r;
+      cin&gt;&gt;l&gt;&gt;r;
+      endi[l].push_back(P(r,i));
+}
+int ans[maxn];
+for(int i=0;i&lt;=2*1e5;i++)
+{
+
+     for(int j=0;j&lt;endi[i].size();j++)
+    {
+
+        remain.insert(endi[i][j]);
+
+    }
+    while(remain.size()&gt;k)
+    {
+        ans[cnt++]=remain.rbegin()-&gt;second;
+        remain.erase(--remain.end());
+
+    }
+    while(!remain.empty()&amp;&amp;remain.begin()-&gt;first==i)  remain.erase(remain.begin());
+}
+cout&lt;&lt;cnt&lt;&lt;endl;
+
+for(int i=0;i&lt;cnt;i++)
+{
+    cout&lt;&lt;ans[i]&lt;&lt;&apos; &apos;;
+}</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CF1249C2-隐含‘进制转换’题目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com/blog">
-  <title>Archives: 2019 | LLF的博客</title>
+  <title>CF1249D2 扫描 贪心  | LLF的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LLF的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="CF  DIV3  1249D2给N个区间给一个K区间每次给L和R会给区间上的点加权值要求每个点的权值不超过K问如何删除最少的区间达到这个效果 分析：贪心从左往右修正点的权值 （删除区间）如果需要删除区间 则删除向右边延申最多的区间#include#include #include#include#include#include#include#includeusing namespace std">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF1249D2 扫描 贪心 ">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;12&#x2F;13&#x2F;CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83&#x2F;index.html">
 <meta property="og:site_name" content="LLF的博客">
+<meta property="og:description" content="CF  DIV3  1249D2给N个区间给一个K区间每次给L和R会给区间上的点加权值要求每个点的权值不超过K问如何删除最少的区间达到这个效果 分析：贪心从左往右修正点的权值 （删除区间）如果需要删除区间 则删除向右边延申最多的区间#include#include #include#include#include#include#include#includeusing namespace std">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-13T02:35:13.080Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LLF的博客" type="application/atom+xml">
@@ -153,265 +156,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CF1249D2-扫描-贪心" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/13/CF1249E-%E7%AE%80%E5%8D%95DP/" class="archive-article-date">
-  	<time datetime="2019-12-13T02:38:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/13/CF1249E-%E7%AE%80%E5%8D%95DP/">CF1249E 简单DP</a>
+    <h1 class="article-title" itemprop="name">
+      CF1249D2 扫描 贪心 
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/" class="archive-article-date">
+        
+        <a href="/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/" class="archive-article-date">
   	<time datetime="2019-12-13T02:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/">CF1249D2 扫描 贪心 </a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CF  DIV3  1249D2<br>给N个区间<br>给一个K<br>区间每次给L和R<br>会给区间上的点加权值<br>要求每个点的权值不超过K<br>问<br>如何删除最少的区间达到这个效果</p>
+<p>分析：<br>贪心<br>从左往右修正点的权值 （删除区间）<br>如果需要删除区间 则删除向右边延申最多的区间<br>#include<cstring><br>#include <iostream><br>#include<cstdio><br>#include<queue><br>#include<cmath><br>#include<algorithm><br>#include<set><br>#include<vector><br>using namespace std ;<br>const int maxn=2*1e5+5;<br>typedef pair&lt;int,int&gt; P;<br>vector<P> endi[maxn];<br>int cnt;<br>int main()<br>{</p>
+<pre><code>int n,k;
+cin&gt;&gt;n&gt;&gt;k;
+set&lt;P&gt; remain;
+for(int i=1;i&lt;=n;i++)
+{
+      int l,r;
+      cin&gt;&gt;l&gt;&gt;r;
+      endi[l].push_back(P(r,i));
+}
+int ans[maxn];
+for(int i=0;i&lt;=2*1e5;i++)
+{
 
-        <div class="article-info info-on-right">
-          
-          
+     for(int j=0;j&lt;endi[i].size();j++)
+    {
 
+        remain.insert(endi[i][j]);
+
+    }
+    while(remain.size()&gt;k)
+    {
+        ans[cnt++]=remain.rbegin()-&gt;second;
+        remain.erase(--remain.end());
+
+    }
+    while(!remain.empty()&amp;&amp;remain.begin()-&gt;first==i)  remain.erase(remain.begin());
+}
+cout&lt;&lt;cnt&lt;&lt;endl;
+
+for(int i=0;i&lt;cnt;i++)
+{
+    cout&lt;&lt;ans[i]&lt;&lt;&apos; &apos;;
+}</code></pre><p>}</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/blog/2019/12/13/CF1249D2-%E6%89%AB%E6%8F%8F-%E8%B4%AA%E5%BF%83/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/13/CF1249C2-%E9%9A%90%E5%90%AB%E2%80%98%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E2%80%99%E9%A2%98%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2019-12-13T02:16:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/12/13/CF1249E-%E7%AE%80%E5%8D%95DP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CF1249E 简单DP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/13/CF1249C2-%E9%9A%90%E5%90%AB%E2%80%98%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E2%80%99%E9%A2%98%E7%9B%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CF1249C2 隐含‘进制转换’题目</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/13/CF1249C2-%E9%9A%90%E5%90%AB%E2%80%98%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E2%80%99%E9%A2%98%E7%9B%AE/">CF1249C2 隐含‘进制转换’题目</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/03/Fate-Grand-Order/" class="archive-article-date">
-  	<time datetime="2019-12-03T14:35:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/03/Fate-Grand-Order/">Fate/Grand Order</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/29/2019CCF%E7%AC%AC%E4%BA%94%E9%A2%98%EF%BC%8C%E6%A0%91%E4%B8%8ADP%EF%BC%8C%E8%80%83%E8%99%91%E8%BE%B9%E7%9A%84%E8%B4%A1%E7%8C%AE%EF%BC%8C%E6%A0%91%E4%B8%8A01%E8%83%8C%E5%8C%85DP/" class="archive-article-date">
-  	<time datetime="2019-11-29T03:27:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/29/2019CCF%E7%AC%AC%E4%BA%94%E9%A2%98%EF%BC%8C%E6%A0%91%E4%B8%8ADP%EF%BC%8C%E8%80%83%E8%99%91%E8%BE%B9%E7%9A%84%E8%B4%A1%E7%8C%AE%EF%BC%8C%E6%A0%91%E4%B8%8A01%E8%83%8C%E5%8C%85DP/">2019CCF第五题，树上DP，考虑边的贡献，树上01背包DP</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/29/%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6%E8%83%8C%E5%8C%85%E7%B1%BB%E5%9E%8B%E7%9A%84dp%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2019-11-29T03:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/29/%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6%E8%83%8C%E5%8C%85%E7%B1%BB%E5%9E%8B%E7%9A%84dp%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AF%81%E6%98%8E/">子树合并背包类型的dp的复杂度证明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/28/2019-11-28-LLF%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E5%98%BB%E5%98%BB/" class="archive-article-date">
-  	<time datetime="2019-11-28T02:31:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/2019-11-28-LLF%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E5%98%BB%E5%98%BB/">LLF的博客开通了！！！！嘻嘻</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/28/2019-ICPC%E4%B8%8A%E6%B5%B7%E7%AB%99-B%E9%A2%98-trie%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2019-11-28T01:48:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/2019-ICPC%E4%B8%8A%E6%B5%B7%E7%AB%99-B%E9%A2%98-trie%E6%A0%91/">2019 ICPC上海站 B题 trie树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/27/hello-world/" class="archive-article-date">
-  	<time datetime="2019-11-27T14:22:47.073Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/27/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -434,8 +371,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
